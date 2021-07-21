@@ -4,6 +4,10 @@
   "description": "A tiny package to process CSV files in Node.js",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shoopapa/process-csv"
+  },
   "scripts": {
     "test": "jest",
     "build": "tsc",
