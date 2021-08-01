@@ -31,7 +31,25 @@ export const processHeaders = (data:string, shift:number[]) => {
   if (shift.length === 0) return data
   const shiftedCsv = shiftRows(data, shift)
   const headers = shiftedCsv.split('\n').slice(0, shift.length)
-  const finalHeader = mergeRows(headers)
+  // const finalHeader = mergeRows(headers)
+  const finalHeader:string = [
+    '',
+    'Started Date',
+    'Context Campaign Source',
+    'Context Campaign Medium',
+    'Context Campaign Name',
+    'Context Campaign Content',
+    'Context Campaign Term',
+    'One Campaign ID',
+    'One Adset ID',
+    'One Ad ID',
+    'Application_Approved_NotFunded [Looker]',
+    'Application_Approved_Funded [Looker]',
+    'Application_Denied_NotFunded [Looker]',
+    'Application_Pending_NotFunded [Looker]',
+    'Application_Pending_Funded [Looker]',
+    'Application_Count [Looker]',
+  ].join(',')
   const rows = data.split('\n').slice(shift.length) 
   const finalRows = [finalHeader, ...rows]
   const selectedRows = removeColumns(finalRows, [false])
@@ -40,6 +58,7 @@ export const processHeaders = (data:string, shift:number[]) => {
 }
 
 /**
+ * 
  * @param {string}  rows - an array of strings with comma separated values
  * @param {boolean[]} columnsToRemove - an array of booleans, true if the column should be removed
  */
