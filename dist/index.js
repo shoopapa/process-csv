@@ -42,7 +42,25 @@ var processHeaders = function (data, shift) {
         return data;
     var shiftedCsv = exports.shiftRows(data, shift);
     var headers = shiftedCsv.split('\n').slice(0, shift.length);
-    var finalHeader = exports.mergeRows(headers);
+    // const finalHeader = mergeRows(headers)
+    var finalHeader = [
+        '',
+        'Started Date',
+        'Context Campaign Source',
+        'Context Campaign Medium',
+        'Context Campaign Name',
+        'Context Campaign Content',
+        'Context Campaign Term',
+        'One Campaign ID',
+        'One Adset ID',
+        'One Ad ID',
+        'Application_Approved_NotFunded [Looker]',
+        'Application_Approved_Funded [Looker]',
+        'Application_Denied_NotFunded [Looker]',
+        'Application_Pending_NotFunded [Looker]',
+        'Application_Pending_Funded [Looker]',
+        'Application_Count [Looker]',
+    ].join(',');
     var rows = data.split('\n').slice(shift.length);
     var finalRows = __spreadArray([finalHeader], rows);
     var selectedRows = exports.removeColumns(finalRows, [false]);
@@ -51,6 +69,7 @@ var processHeaders = function (data, shift) {
 };
 exports.processHeaders = processHeaders;
 /**
+ *
  * @param {string}  rows - an array of strings with comma separated values
  * @param {boolean[]} columnsToRemove - an array of booleans, true if the column should be removed
  */
