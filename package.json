@@ -11,7 +11,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "prepublish": "yarn test && yarn build"
+    "prepublish": "npm run test && npm run build"
   },
   "keywords": [],
   "author": "jdavis",
